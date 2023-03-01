@@ -1,11 +1,9 @@
 const Express = require('express');
+const appRouter = require('./router').default;
 
 const listenPort = 3000;
 const app = Express();
-
-app.get('/', (req, res) => {
-  return res.send('Hello world!');
-})
+app.use(appRouter);
 
 const httpServer = app.listen(listenPort, () => {
   console.log('Listening on port', listenPort);
